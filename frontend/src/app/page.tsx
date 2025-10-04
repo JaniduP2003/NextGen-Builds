@@ -47,7 +47,7 @@ export default function LandingPage() {
   }}
 >
   <DecryptedText
-    text="NextGen Builds"
+    text={`NextGen\nBuilds`}
     speed={80}
     maxIterations={20}
     characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%"
@@ -63,7 +63,7 @@ export default function LandingPage() {
       lineHeight: 1.1,
       whiteSpace: 'pre-line',              // allows \n to make new lines
     }}
-    
+
   />
 
  
