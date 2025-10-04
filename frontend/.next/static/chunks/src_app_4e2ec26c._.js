@@ -315,11 +315,18 @@ function LandingPage() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$esm$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
                 sx: {
                     position: 'absolute',
-                    top: '50%',
-                    left: '80%',
+                    top: '20%',
+                    left: '16%',
                     transform: 'translate(-50%, -50%)',
                     textAlign: 'center',
-                    zIndex: 10
+                    zIndex: 10,
+                    border: '2px solid red',
+                    display: 'flex',
+                    flexDirection: 'row-reverse',
+                    flexWrap: 'nowrap',
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    alignContent: 'stretch'
                 },
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$components$2f$DecryptedText$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     text: "NextGen\nBuilds",
@@ -341,20 +348,20 @@ function LandingPage() {
                         fontSize: 'clamp(2rem, 6vw, 5rem)',
                         fontWeight: 800,
                         textTransform: 'uppercase',
-                        background: 'linear-gradient(90deg, #ff6a00, #ee0979)',
+                        background: 'linear-gradient(90deg, #060301ff, #ee9609ff)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         whiteSpace: 'pre-line'
                     }
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 49,
+                    lineNumber: 61,
                     columnNumber: 3
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 39,
-                columnNumber: 6
+                lineNumber: 40,
+                columnNumber: 1
             }, this)
         ]
     }, void 0, true, {
