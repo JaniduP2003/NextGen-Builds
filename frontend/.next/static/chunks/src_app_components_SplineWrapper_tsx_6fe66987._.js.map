@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/janidu/Documents/GitHub/NextGen-Builds/NextGen-Builds/frontend/src/app/components/SplineWrapper.tsx"],"sourcesContent":["'use client';\n\nimport { lazy, Suspense } from 'react';\n\nconst Spline = lazy(() => import('@splinetool/react-spline'));\n\nexport default function SplineWrapper() {\n  return (\n    <Suspense fallback={<div>Loading...</div>}>\n      <Spline scene=\"https://prod.spline.design/kU9qOMOZI-uaOQKv/scene.splinecode\" />\n    </Suspense>\n  );\n}\n"],"names":[],"mappings":";;;;;AAEA;AAFA;;;AAIA,MAAM,uBAAS,IAAA,qKAAI,EAAC;KAAd;AAES,SAAS;IACtB,qBACE,6LAAC,yKAAQ;QAAC,wBAAU,6LAAC;sBAAI;;;;;;kBACvB,cAAA,6LAAC;YAAO,OAAM;;;;;;;;;;;AAGpB;MANwB","debugId":null}}]
-}

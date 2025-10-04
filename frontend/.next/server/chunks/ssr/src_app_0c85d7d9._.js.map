@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/janidu/Documents/GitHub/NextGen-Builds/NextGen-Builds/frontend/src/app/components/SplineWrapper.tsx"],"sourcesContent":["'use client';  // if use this in page it gives error \n\nimport Spline from '@splinetool/react-spline/next';\n\nexport default function SplineWrapper() {\n  return (<Spline scene=\"https://prod.spline.design/kU9qOMOZI-uaOQKv/scene.splinecode\" />\n  \n  );\n}\n"],"names":[],"mappings":";;;;;AAEA;AAFA,cAAe,sCAAsC;;;AAItC,SAAS;IACtB,qBAAQ,8OAAC,6LAAM;QAAC,OAAM;;;;;;AAGxB","debugId":null}},
-    {"offset": {"line": 26, "column": 0}, "map": {"version":3,"sources":["file:///home/janidu/Documents/GitHub/NextGen-Builds/NextGen-Builds/frontend/src/app/page.tsx"],"sourcesContent":["'use client';\n\nimport { Box } from '@mui/material';\nimport dynamic from 'next/dynamic';\nimport SplineWrapper from './components/SplineWrapper'; // <- Added Spline client wrapper\n\n\n// Dynamically import Spline to avoid SSR issues\nconst Spline = dynamic(() => import('@splinetool/react-spline/next'), { ssr: false });\n\nexport default function LandingPage() {\n  return (\n\n      \n        <SplineWrapper />\n  \n  );\n}\n"],"names":[],"mappings":";;;;;AAGA;AACA,mPAAwD,iCAAiC;;AAJzF;;;;AAOA,gDAAgD;AAChD,MAAM,SAAS,IAAA,0KAAO;;;;;;IAAkD,KAAK;;AAE9D,SAAS;IACtB,qBAGM,8OAAC,qJAAa;;;;;AAGtB","debugId":null}}]
-}
