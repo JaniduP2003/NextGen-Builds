@@ -286,7 +286,14 @@ function LandingPage() {
                     className: "revealed",
                     encryptedClassName: "encrypted",
                     animateOn: "view",
-                    revealDirection: "center"
+                    revealDirection: "center",
+                    style: {
+                        fontSize: 'clamp(2rem, 6vw, 5rem)',
+                        fontWeight: 700,
+                        color: '#222',
+                        lineHeight: 1.1,
+                        whiteSpace: 'pre-line'
+                    }
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
                     lineNumber: 49,

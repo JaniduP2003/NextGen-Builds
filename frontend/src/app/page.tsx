@@ -55,6 +55,15 @@ export default function LandingPage() {
     encryptedClassName="encrypted"
     animateOn="view"
     revealDirection="center"
+
+     style={{
+      fontSize: 'clamp(2rem, 6vw, 5rem)',  // responsive size
+      fontWeight: 700,
+      color: '#222',                       // dark gray for white background
+      lineHeight: 1.1,
+      whiteSpace: 'pre-line',              // allows \n to make new lines
+    }}
+    
   />
 
  
