@@ -1,9 +1,13 @@
-'use client';  // if use this in page it gives error 
+'use client';
 
-import Spline from '@splinetool/react-spline/next';
+import { lazy, Suspense } from 'react';
+
+const Spline = lazy(() => import('@splinetool/react-spline'));
 
 export default function SplineWrapper() {
   return (
-    <Spline scene="https://prod.spline.design/kU9qOMOZI-uaOQKv/scene.splinecode" />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Spline scene="https://prod.spline.design/kU9qOMOZI-uaOQKv/scene.splinecode" />
+    </Suspense>
   );
 }
