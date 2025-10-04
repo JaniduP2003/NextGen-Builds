@@ -7,7 +7,7 @@ const Spline = lazy(() => import('@splinetool/react-spline'));
 export default function SplineWrapper() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Spline scene="https://prod.spline.design/kU9qOMOZI-uaOQKv/scene.splinecode" />
+      <Spline scene="https://prod.spline.design/PF4i955RuHqrcqY9/scene.splinecode" />
     </Suspense>
   );
 }
