@@ -56,13 +56,23 @@ export default function LandingPage() {
     animateOn="view"
     revealDirection="center"
 
-     style={{
-      fontSize: 'clamp(2rem, 6vw, 5rem)',  // responsive size
-      fontWeight: 700,
-      color: '#222',                       // dark gray for white background
-      lineHeight: 1.1,
-      whiteSpace: 'pre-line',              // allows \n to make new lines
-    }}
+    //  style={{
+    //   fontSize: 'clamp(2rem, 6vw, 5rem)',  // responsive size
+    //   fontWeight: 700,
+    //   color: '#222',                       // dark gray for white background
+    //   lineHeight: 1.1,
+    //   whiteSpace: 'pre-line',              // allows \n to make new lines
+    // }}
+
+      style={{
+    fontSize: 'clamp(2rem, 6vw, 5rem)',
+    fontWeight: 800,
+    textTransform: 'uppercase',
+    background: 'linear-gradient(90deg, #ff6a00, #ee0979)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    whiteSpace: 'pre-line',
+  }}
 
   />
 
