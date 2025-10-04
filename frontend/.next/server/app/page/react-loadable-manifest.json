@@ -2,9 +2,9 @@
   "[project]/src/app/components/SplineWrapper.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/app/components/SplineWrapper.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/node_modules_@splinetool_react-spline_dist_react-spline_de5eb547.js",
+      "static/chunks/node_modules_@splinetool_react-spline_dist_react-spline_24c935d2.js",
       "static/chunks/src_app_components_SplineWrapper_tsx_6fe66987._.js",
-      "static/chunks/src_app_components_SplineWrapper_tsx_59dae672._.js"
+      "static/chunks/src_app_components_SplineWrapper_tsx_522daece._.js"
     ]
   }
 }
