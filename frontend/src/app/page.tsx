@@ -3,6 +3,8 @@
 import { Box, Button, Typography } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
+import DecryptedText from './components/DecryptedText';
+
 
 // Dynamically import SplineWrapper to avoid SSR issues
 const SplineWrapper = dynamic(() => import('./components/SplineWrapper'), { ssr: false });
@@ -34,42 +36,29 @@ export default function LandingPage() {
       </Box>
 
       {/* Centered styled text */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '30%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          textAlign: 'center',
-          color: 'white',
-          zIndex: 2,
-        }}
-        component={motion.div}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <Typography
-          variant="h2"
-          sx={{
-            fontWeight: 700,
-            letterSpacing: 2,
-            textShadow: '0 0 15px rgba(148, 19, 19, 0.5)',
-          }}
-        >
-          Welcome to NextGen Builds
-        </Typography>
-        <Typography
-          variant="h6"
-          sx={{
-            mt: 2,
-            fontWeight: 300,
-            color: 'rgba(178, 42, 42, 0.8)',
-          }}
-        >
-          Innovating the future, one build at a time.
-        </Typography>
-         </Box>
+     <Box
+  sx={{
+    position: 'absolute',
+    top: '50%',
+    left: '80%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+    zIndex: 10,
+  }}
+>
+  <DecryptedText
+    text="NextGen Builds"
+    speed={80}
+    maxIterations={20}
+    characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%"
+    className="revealed"
+    encryptedClassName="encrypted"
+    animateOn="view"
+    revealDirection="center"
+  />
+
+ 
+</Box>
       
     </Box>
   );
