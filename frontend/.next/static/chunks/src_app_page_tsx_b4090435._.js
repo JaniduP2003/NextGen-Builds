@@ -14,39 +14,53 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 ;
-// Dynamically import Spline to avoid SSR issues
-const Spline = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$shared$2f$lib$2f$app$2d$dynamic$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(()=>__turbopack_context__.A("[project]/node_modules/@splinetool/react-spline/dist/react-spline-next.js [app-client] (ecmascript, next/dynamic entry, async loader)"), {
+// Dynamically import SplineWrapper to avoid SSR issues
+const SplineWrapper = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$shared$2f$lib$2f$app$2d$dynamic$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(()=>__turbopack_context__.A("[project]/src/app/components/SplineWrapper.tsx [app-client] (ecmascript, next/dynamic entry, async loader)"), {
     loadableGenerated: {
         modules: [
-            "[project]/node_modules/@splinetool/react-spline/dist/react-spline-next.js [app-client] (ecmascript, next/dynamic entry)"
+            "[project]/src/app/components/SplineWrapper.tsx [app-client] (ecmascript, next/dynamic entry)"
         ]
     },
     ssr: false
 });
-_c = Spline;
+_c = SplineWrapper;
 function LandingPage() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$esm$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
         sx: {
-            width: '100vw',
+            position: 'relative',
+            width: '100%',
             height: '100vh',
+            background: 'rgb(128, 128, 128)',
             overflow: 'hidden'
         },
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Spline, {
-            scene: "https://prod.spline.design/6vQwQvQK1QwQvQK1/scene.splinecode"
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$esm$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
+            sx: {
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0
+            },
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SplineWrapper, {}, void 0, false, {
+                fileName: "[project]/src/app/page.tsx",
+                lineNumber: 32,
+                columnNumber: 9
+            }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/page.tsx",
-            lineNumber: 14,
+            lineNumber: 22,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/page.tsx",
-        lineNumber: 13,
+        lineNumber: 12,
         columnNumber: 5
     }, this);
 }
 _c1 = LandingPage;
 var _c, _c1;
-__turbopack_context__.k.register(_c, "Spline");
+__turbopack_context__.k.register(_c, "SplineWrapper");
 __turbopack_context__.k.register(_c1, "LandingPage");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
