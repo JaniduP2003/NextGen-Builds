@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Montserrat } from 'next/font/google';
-import { Box, Typography, TextField, Button, Link, IconButton, Divider, Stack } from '@mui/material';
+import { Box, Typography, TextField, Button, Link, IconButton, Divider, Stack ,Checkbox, FormControlLabel } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
@@ -82,7 +82,7 @@ const InputWithIcon = styled(TextField)(({ theme }) => ({
     },
   },
   '& .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'rgba(55, 22, 220, 0.3)',
+    borderColor: 'rgba(220, 22, 78, 0.3)',
   },
   '&:hover .MuiOutlinedInput-notchedOutline': {
     borderColor: 'rgba(255, 0, 93, 0.5)',      //the boder of the imput boc coler 
@@ -118,10 +118,15 @@ const SocialButton = styled(Button)(({ theme }) => ({
 export default function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);  //for remeber me 
+
+   const handleRememberMeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRememberMe(event.target.checked);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ email, password });
+    console.log({ email, password ,rememberMe});
     // Add auth logic here
   };
 
@@ -209,13 +214,36 @@ export default function SignInPage() {
             }}
           />
 
+ {/* ADDED THE CHECKBOX  */}
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={rememberMe}
+                onChange={handleRememberMeChange}
+                color="primary"
+                sx={{
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  '&.Mui-checked': {
+                    color: '#ff0033', // Red color when checked
+                  },
+                }}
+              />
+            }
+            label={
+              <Typography sx={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                Remember me
+              </Typography>
+            }
+            sx={{ mt: 1, mb: 2 }} // Add margin to position it nicely
+          />
+
           {/* Primary button */}
           <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{
-              mt: 3,
+              mt: 1,
               mb: 3,
               py: 1.5,
               borderRadius: '12px',
