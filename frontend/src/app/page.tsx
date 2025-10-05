@@ -4,6 +4,8 @@ import { Box, Button, Typography, Container } from '@mui/material';
 import dynamic from 'next/dynamic';
 import SplitText from './components/SplitText';
 import SpotlightCard from './components/SpotlightCard';
+import { useRouter } from 'next/navigation';
+
 // Dynamically import SplineWrapper to avoid SSR issues
 const SplineWrapper = dynamic(() => import('./components/SplineWrapper'), { ssr: false });
 
@@ -12,6 +14,8 @@ const handleAnimationComplete = () => {
 };
 
 export default function LandingPage() {
+    const router = useRouter(); // 
+
   return (
     <>
       {/* Hero Section — full viewport height */}
@@ -106,6 +110,7 @@ export default function LandingPage() {
             }}
           >
             <Button
+            onClick={() => router.push('/signin')}
               sx={{
                 px: { xs: 4, sm: 6 },
                 py: { xs: 1.2, sm: 1.5 },
@@ -148,6 +153,7 @@ export default function LandingPage() {
             </Button>
 
             <Button
+            onClick={() => router.push('/signup')}
               sx={{
                 px: { xs: 4, sm: 6 },
                 py: { xs: 1.2, sm: 1.5 },
