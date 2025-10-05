@@ -155,9 +155,12 @@ export default function SignInPage() {
       >
         <GlassCard>
           {/* Top login icon button */}
+           {/* Top login icon button - Centered */}
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
           <LoginIconButton>
             <LoginIcon fontSize="large"  />
           </LoginIconButton>
+          </Box>
 
           {/* Title & subtitle */}
           <Typography variant="h5" component="h1" sx={{ fontWeight: 600, color: 'white', mb: 1 ,textAlign: 'center'}}>
