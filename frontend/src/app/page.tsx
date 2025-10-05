@@ -260,124 +260,136 @@ export default function LandingPage() {
     alignItems: 'stretch',
   }}
 >
-  {/* Card 1 - Maximum Performance */}
+    {/* Card 1 - Maximum Performance */}
   <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '320px' }}>
-    <SpotlightCard 
-      spotlightColor="rgba(255, 0, 0, 0.1)"
-      className="card-spotlight"
-    >
-      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-        <Typography 
-          variant="h5" 
-          sx={{ 
-            mb: 2, 
-            color: '#ffffffff',
-            fontWeight: 700,
-            zIndex: 2,
-            position: 'relative'
-          }}
-        >
-          ⚡ Maximum Performance
-        </Typography>
-        <Typography 
-          color="#ffffffff"
-          sx={{ 
-            zIndex: 2,
-            position: 'relative',
-            mb: 3,
-            flexGrow: 1,
-          }}
-        >
-          Latest RTX 4090 graphics cards and Intel i9 processors deliver ultra-high frame rates for competitive gaming at 4K resolution.
-        </Typography>
-        <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, zIndex: 2, position: 'relative', mt: 'auto' }}>
-          <Typography sx={{ fontSize: '2.5rem', fontWeight: 700, color: '#ee0979' }}>240+</Typography>
-          <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem' }}>
-            FPS Average in AAA Games
+    {/* ADDED THIS WRAPPER BOX */}
+    <Box sx={{ height: '100%' }}>
+      <SpotlightCard 
+        spotlightColor="rgba(255, 0, 0, 0.1)"
+        className="card-spotlight"
+      >
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              mb: 2, 
+              color: '#ffffffff',
+              fontWeight: 700,
+              zIndex: 2,
+              position: 'relative'
+            }}
+          >
+            ⚡ Maximum FPS
           </Typography>
+          <Typography 
+            color="#ffffffff"
+            sx={{ 
+              zIndex: 2,
+              position: 'relative',
+              mb: 3,
+              flexGrow: 1,
+            }}
+          >
+            Latest RTX 4090 graphics cards and Intel i9 processors deliver ultra-high frame rates for competitive gaming at 4K resolution.
+          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, zIndex: 2, position: 'relative', mt: 'auto' }}>
+            <Typography sx={{ fontSize: '2.5rem', fontWeight: 700, color: '#ee0979' }}>240+</Typography>
+            <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem' }}>
+              FPS Average in AAA Games
+            </Typography>
+          </Box>
         </Box>
-      </Box>
-    </SpotlightCard>
+      </SpotlightCard>
+    {/* END OF ADDED WRAPPER */}
+    </Box>
   </Box>
 
-  {/* Card 2 - Premium Quality */}
+   {/* Card 2 - Premium Quality */}
   <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '320px' }}>
-    <SpotlightCard 
-      spotlightColor="rgba(255, 255, 255, 0.99)"
-      className="card-spotlight"
-    >
-      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-        <Typography 
-          variant="h5" 
-          sx={{ 
-            mb: 2, 
-            color: '#ffffffff',
-            fontWeight: 700,
-            zIndex: 2,
-            position: 'relative'
-          }}
-        >
-          🎨 Premium Quality
-        </Typography>
-        <Typography 
-          color="#ffffffff"
-          sx={{ 
-            zIndex: 2,
-            position: 'relative',
-            mb: 3,
-            flexGrow: 1,
-          }}
-        >
-          Hand-picked components from top brands like ASUS, MSI, and Corsair. Every build undergoes 48-hour stress testing for reliability.
-        </Typography>
-        <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, zIndex: 2, position: 'relative', mt: 'auto' }}>
-          <Typography sx={{ fontSize: '2.5rem', fontWeight: 700, color: '#ff6a00' }}>3 Years</Typography>
-          <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem' }}>
-            Warranty Coverage
+    {/* ADDED THIS WRAPPER BOX */}
+    <Box sx={{ height: '100%' }}>
+      <SpotlightCard 
+        spotlightColor="rgba(255, 255, 255, 0.99)"
+        className="card-spotlight"
+      >
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              mb: 2, 
+              color: '#ffffffff',
+              fontWeight: 700,
+              zIndex: 2,
+              position: 'relative'
+            }}
+          >
+            🎨 Premium Quality
           </Typography>
+          <Typography 
+            color="#ffffffff"
+            sx={{ 
+              zIndex: 2,
+              position: 'relative',
+              mb: 3,
+              flexGrow: 1,
+            }}
+          >
+            Hand-picked components from top brands like ASUS, MSI, and Corsair. Every build undergoes 48-hour stress testing for reliability.
+          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, zIndex: 2, position: 'relative', mt: 'auto' }}>
+            <Typography sx={{ fontSize: '2.5rem', fontWeight: 700, color: '#ff6a00' }}>3 Years</Typography>
+            <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem' }}>
+              Warranty Coverage
+            </Typography>
+          </Box>
         </Box>
-      </Box>
-    </SpotlightCard>
+      </SpotlightCard>
+    {/* END OF ADDED WRAPPER */}
+    </Box>
   </Box>
 
   {/* Card 3 - Expert Support */}
   <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: '320px' }}>
-    <SpotlightCard 
-      spotlightColor="rgba(253, 253, 253, 1)"
-      className="card-spotlight"
-    >
-      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-        <Typography 
-          variant="h5" 
-          sx={{ 
-            mb: 2, 
-            color: '#fffefeff',
-            fontWeight: 700,
-            zIndex: 2,
-            position: 'relative'
-          }}
-        >
-          💰 Expert Support
-        </Typography>
-        <Typography 
-          color="#ffffffff"
-          sx={{ 
-            zIndex: 2,
-            position: 'relative',
-            mb: 3,
-            flexGrow: 1,
-          }}
-        >
-          24/7 technical support from certified gaming PC specialists. Free setup assistance and lifetime optimization consultations.
-        </Typography>
-        <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, zIndex: 2, position: 'relative', mt: 'auto' }}>
-          <Typography sx={{ fontSize: '2.5rem', fontWeight: 700, color: '#00e5ff' }}>24/7</Typography>
-          <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem' }}>
-            Live Support
+    {/* ADDED THIS WRAPPER BOX */}
+    <Box sx={{ height: '100%' }}>
+      <SpotlightCard 
+        spotlightColor="rgba(253, 253, 253, 1)"
+        className="card-spotlight"
+      >
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              mb: 2, 
+              color: '#fffefeff',
+              fontWeight: 700,
+              zIndex: 2,
+              position: 'relative'
+            }}
+          >
+            💰 Expert Support
           </Typography>
+          <Typography 
+            color="#ffffffff"
+            sx={{ 
+              zIndex: 2,
+              position: 'relative',
+              mb: 3,
+              flexGrow: 1,
+            }}
+          >
+            24/7 technical support from certified gaming PC specialists. Free setup assistance and lifetime optimization consultations.
+          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, zIndex: 2, position: 'relative', mt: 'auto' }}>
+            <Typography sx={{ fontSize: '2.5rem', fontWeight: 700, color: '#00e5ff' }}>24/7</Typography>
+            <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.9rem' }}>
+              Live Support
+            </Typography>
+          </Box>
         </Box>
-      </Box>
-    </SpotlightCard>
+      </SpotlightCard>
+    {/* END OF ADDED WRAPPER */}
+    </Box>
   </Box>
 </Box>
         </Container>
