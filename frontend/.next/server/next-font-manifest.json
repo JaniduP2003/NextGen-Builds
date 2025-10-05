@@ -2,6 +2,9 @@
   "app": {
     "[project]/src/app/signin/page": [
       "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
+    ],
+    "[project]/src/app/signup/page": [
+      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2"
     ]
   },
   "appUsingSizeAdjust": true,
