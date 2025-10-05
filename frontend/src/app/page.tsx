@@ -258,23 +258,86 @@ export default function LandingPage() {
               justifyContent: 'center',
             }}
           >
-            <SpotlightCard spotlightColor="rgba(255, 255, 255, 0.3)" className="custom-spotlight-card">
-              <Typography variant="h5" sx={{ mb: 2, color: 'white' }}>⚡ Performance</Typography>
-              <Typography color="rgba(0, 0, 0, 0.9)">
+            {/* CHANGED: Updated SpotlightCard props and text colors for red/white theme */}
+            <SpotlightCard 
+              spotlightColor="rgba(255, 0, 0, 0.1)" // Red spotlight
+              className="card-spotlight" // Changed class name
+            >
+              <Typography 
+                variant="h5" 
+                sx={{ 
+                  mb: 2, 
+                  color: '#ffffffff', // Dark text for contrast
+                  fontWeight: 700,
+                  zIndex: 2,
+                  position: 'relative'
+                }}
+              >
+                ⚡ Performance
+              </Typography>
+              <Typography 
+                color="#ffffffff" // Dark gray for readability
+                sx={{ 
+                  zIndex: 2,
+                  position: 'relative'
+                }}
+              >
                 Hand-picked components for max FPS in AAA titles.
               </Typography>
             </SpotlightCard>
 
-            <SpotlightCard spotlightColor="rgba(255, 255, 255, 0.3)" className="custom-spotlight-card">
-              <Typography variant="h5" sx={{ mb: 2, color: 'white' }}>🎨 Customization</Typography>
-              <Typography color="rgba(255, 255, 255, 0.9)">
+            {/* CHANGED: Updated SpotlightCard props and text colors for red/white theme */}
+            <SpotlightCard 
+              spotlightColor="rgba(255, 0, 0, 0.1)" // Red spotlight
+              className="card-spotlight" // Changed class name
+            >
+              <Typography 
+                variant="h5" 
+                sx={{ 
+                  mb: 2, 
+                  color: '#000',
+                  fontWeight: 700,
+                  zIndex: 2,
+                  position: 'relative'
+                }}
+              >
+                🎨 Customization
+              </Typography>
+              <Typography 
+                color="#333"
+                sx={{ 
+                  zIndex: 2,
+                  position: 'relative'
+                }}
+              >
                 RGB lighting, case mods, and liquid cooling options.
               </Typography>
             </SpotlightCard>
 
-            <SpotlightCard spotlightColor="rgba(255, 255, 255, 0.3)" className="custom-spotlight-card">
-              <Typography variant="h5" sx={{ mb: 2, color: 'white' }}>💰 Value</Typography>
-              <Typography color="rgba(255, 255, 255, 0.9)">
+            {/* CHANGED: Updated SpotlightCard props and text colors for red/white theme */}
+            <SpotlightCard 
+              spotlightColor="rgba(255, 0, 0, 0.1)" // Red spotlight
+              className="card-spotlight" // Changed class name
+            >
+              <Typography 
+                variant="h5" 
+                sx={{ 
+                  mb: 2, 
+                  color: '#000',
+                  fontWeight: 700,
+                  zIndex: 2,
+                  position: 'relative'
+                }}
+              >
+                💰 Value
+              </Typography>
+              <Typography 
+                color="#333"
+                sx={{ 
+                  zIndex: 2,
+                  position: 'relative'
+                }}
+              >
                 Best price-to-performance ratio guaranteed.
               </Typography>
             </SpotlightCard>
