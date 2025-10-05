@@ -1,51 +1,50 @@
-/* CHANGED: Added red/white themed glassmorphic spotlight card styles */
+/* CHANGED: Glassmorphic Spotlight Card with Red/White Theme */
 .card-spotlight {
   position: relative;
-  border-radius: 1.5rem;
-  border: 1px solid rgba(255, 0, 0, 0.289); /* Red border with transparency */
-  background-color: rgba(255, 255, 255, 0.337); /* Semi-transparent white */
-  padding: 2rem;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.15); /* translucent white */
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  padding: 2.5rem;
   overflow: hidden;
-  --mouse-x: 50%;
-  --mouse-y: 50%;
-  --spotlight-color: rgba(255, 255, 255, 0.15); /* White spotlight for glass effect */
-  transition: all 0.3s ease;
-  box-shadow: 
-    0 8px 32px rgba(255, 0, 0, 0.2), /* Red glow */
-    inset 0 0 8px rgba(255, 255, 255, 0.1); /* Inner glow */
+  transition: all 0.4s ease;
   z-index: 2;
-  backdrop-filter: blur(10px); /* Glass effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
+
+  box-shadow:
+    0 0 25px rgba(255, 255, 255, 0.15),
+    0 8px 32px rgba(255, 0, 0, 0.15), /* Red glow */
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
+/* Light glass reflection / spotlight effect */
 .card-spotlight::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: radial-gradient(
-    circle at var(--mouse-x) var(--mouse-y), 
-    var(--spotlight-color), 
-    transparent 80%
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(241, 6, 6, 0.835),
+    transparent 70%
   );
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.4s ease;
   pointer-events: none;
   z-index: 1;
 }
 
-.card-spotlight:hover::before,
-.card-spotlight:focus-within::before {
-  opacity: 0.8;
+/* Hover effect: lift + glow */
+.card-spotlight:hover {
+  transform: translateY(-6px) scale(1.015);
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 10px 40px rgba(255, 0, 0, 0.25), /* Enhanced red glow */
+    0 0 50px rgba(255, 255, 255, 0.3),
+    inset 0 0 40px rgba(255, 255, 255, 0.1);
 }
 
-/* Optional: Add subtle hover effect */
-.card-spotlight:hover {
-  transform: translateY(-5px);
-  box-shadow: 
-    0 12px 40px rgba(255, 0, 0, 0.3), /* Enhanced red glow */
-    inset 0 0 12px rgba(255, 255, 255, 0.15); /* Enhanced inner glow */
-  border-color: rgba(255, 106, 0, 0.5); /* Change border on hover */
+.card-spotlight:hover::before {
+  opacity: 0.8;
+  transform: scale(1.05);
 }
