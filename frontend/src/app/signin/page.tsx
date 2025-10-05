@@ -3,8 +3,14 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Montserrat } from 'next/font/google';
-import { Box, Typography, TextField, Button, Link } from '@mui/material';
+import { Box, Typography, TextField, Button, Link, IconButton, Divider, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import AppleIcon from '@mui/icons-material/Apple';
+import LoginIcon from '@mui/icons-material/Login';
 
 // Dynamically import the local Spline wrapper (SSR-safe)
 const SplineWrapper = dynamic(() => import('@/app/components/SplineWrapper'), {
@@ -52,6 +58,63 @@ const GradientText = styled(Typography)(({ theme }) => ({
   },
 }));
 
+// Styled icon button for top login symbol
+const LoginIconButton = styled(IconButton)(({ theme }) => ({
+  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+  color: 'white',
+  width: 64,
+  height: 64,
+  borderRadius: '16px',
+  marginBottom: theme.spacing(3),
+  '&:hover': {
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+  },
+}));
+
+// Input field with icon inside
+const InputWithIcon = styled(TextField)(({ theme }) => ({
+  '& .MuiInputBase-root': {
+    borderRadius: '12px',
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    },
+  },
+  '& .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+  },
+  '&:hover .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(255, 255, 255, 0.5)',
+  },
+  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'white',
+  },
+  '& .MuiInputAdornment-root': {
+    color: 'rgba(255, 255, 255, 0.7)',
+  },
+}));
+
+// Social button style
+const SocialButton = styled(Button)(({ theme }) => ({
+  width: '100%',
+  height: 56,
+  borderRadius: '12px',
+  backgroundColor: 'rgba(255, 255, 255, 0.15)',
+  color: 'white',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '8px',
+  '&:hover': {
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    transform: 'scale(1.02)',
+  },
+  '& svg': {
+    fontSize: '24px',
+  },
+}));
+
 export default function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -91,98 +154,104 @@ export default function SignInPage() {
         }}
       >
         <GlassCard>
-          <GradientText variant="h4">
-            Welcome back to NextGen Builds ⚡
-          </GradientText>
+          {/* Top login icon button */}
+          <LoginIconButton>
+            <LoginIcon fontSize="large"  />
+          </LoginIconButton>
 
-          <Box component="form" onSubmit={handleSubmit} noValidate>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              InputProps={{
-                style: {
-                  color: 'white',
-                  borderRadius: '12px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                },
-              }}
-              InputLabelProps={{
-                style: { color: 'rgba(255, 255, 255, 0.85)' },
-              }}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              InputProps={{
-                style: {
-                  color: 'white',
-                  borderRadius: '12px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                },
-              }}
-              InputLabelProps={{
-                style: { color: 'rgba(255, 255, 255, 0.85)' },
-              }}
-            />
+          {/* Title & subtitle */}
+          <Typography variant="h5" component="h1" sx={{ fontWeight: 600, color: 'white', mb: 1 ,textAlign: 'center'}}>
+            Sign in with email
+          </Typography>
+          <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.8)', mb: 4, textAlign: 'center' }}>
+            Make a new doc to bring your words, data, and teams together. For free.
+          </Typography>
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{
-                mt: 3,
-                mb: 2,
-                py: 1.5,
-                borderRadius: '12px',
-                background: 'linear-gradient(90deg, #ff0033 0%, #ff3366 100%)',
-                color: 'white',
-                fontWeight: 600,
-                textTransform: 'none',
-                boxShadow: '0 4px 20px rgba(255, 0, 51, 0.4)',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  transform: 'scale(1.03)',
-                  boxShadow: '0 6px 25px rgba(255, 0, 51, 0.6)',
-                  background: 'linear-gradient(90deg, #ff0033 0%, #ff0033 100%)',
-                },
-              }}
-            >
-              Sign In
-            </Button>
+          {/* Email input */}
+          <InputWithIcon
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            InputProps={{
+              startAdornment: <EmailIcon sx={{ mr: 1 }} />,
+            }}
+          />
 
-            <Box sx={{ textAlign: 'center', mt: 2 }}>
-              <Link
-                href="#"
-                variant="body2"
-                sx={{
-                  color: 'rgba(255, 255, 255, 0.85)',
-                  textDecoration: 'none',
-                  '&:hover': {
-                    color: 'white',
-                    textDecoration: 'underline',
-                  },
-                }}
-              >
-                Forgot Password?
-              </Link>
-            </Box>
-          </Box>
+          {/* Password input */}
+          <InputWithIcon
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            InputProps={{
+              startAdornment: <LockIcon sx={{ mr: 1 }} />,
+              endAdornment: (
+                <Link href="#" variant="caption" sx={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                  Forgot password?
+                </Link>
+              ),
+            }}
+          />
+
+          {/* Primary button */}
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              mt: 3,
+              mb: 3,
+              py: 1.5,
+              borderRadius: '12px',
+              background: 'linear-gradient(90deg, #ff0033 0%, #ff3366 100%)',
+              color: 'white',
+              fontWeight: 600,
+              textTransform: 'none',
+              boxShadow: '0 4px 20px rgba(255, 0, 51, 0.4)',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.03)',
+                boxShadow: '0 6px 25px rgba(255, 0, 51, 0.6)',
+                background: 'linear-gradient(90deg, #ff0033 0%, #ff0033 100%)',
+              },
+            }}
+          >
+            Get Started
+          </Button>
+
+ {/* Divider */}
+          <Divider sx={{ my: 2, color: 'rgba(255, 255, 255, 0.3)' }}>
+            <Typography variant="caption" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+              Or sign in with
+            </Typography>
+          </Divider>
+
+          {/* Social login buttons - Using Stack for responsive layout */}
+          <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+            <SocialButton>
+              <GoogleIcon />
+            </SocialButton>
+            <SocialButton>
+              <FacebookIcon />
+            </SocialButton>
+            <SocialButton>
+              <AppleIcon />
+            </SocialButton>
+          </Stack>
+
         </GlassCard>
       </Box>
     </div>
