@@ -78,14 +78,14 @@ const InputWithIcon = styled(TextField)(({ theme }) => ({
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
     color: 'white',
     '&:hover': {
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      backgroundColor: 'rgba(216, 39, 39, 0.2)',
     },
   },
   '& .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(55, 22, 220, 0.3)',
   },
   '&:hover .MuiOutlinedInput-notchedOutline': {
-    borderColor: 'rgba(255, 255, 255, 0.5)',
+    borderColor: 'rgba(255, 0, 93, 0.5)',      //the boder of the imput boc coler 
   },
   '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
     borderColor: 'white',
