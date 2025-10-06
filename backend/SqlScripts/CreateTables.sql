@@ -1,0 +1,14 @@
+
+CREATE DATABASE IF NOT EXISTS `resourcelydb`;
+USE `resourcelydb`;
+
+CREATE TABLE IF NOT EXISTS `Users` (
+    `Id` INT NOT NULL AUTO_INCREMENT,
+    `Email` VARCHAR(255) NOT NULL UNIQUE,
+    `Username` VARCHAR(255) NOT NULL,
+    `PasswordHash` TEXT NOT NULL,
+    `PasswordSalt` TEXT NOT NULL,
+    `Role` VARCHAR(50) NOT NULL DEFAULT 'User',
+    `CreatedAt` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

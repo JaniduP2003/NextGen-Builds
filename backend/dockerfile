@@ -1,0 +1,22 @@
+# Use the .NET 8.0 SDK for building
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy the project file and restore dependencies
+COPY backend.csproj .
+RUN dotnet restore
+
+# Copy the remaining source code and build the application
+COPY . .
+RUN dotnet publish -c Release -o /app/publish
+
+# Use the .NET 8.0 ASP.NET runtime for the final image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app/publish .
+
+# Expose the port the application runs on
+EXPOSE 8080
+
+# Set the entrypoint to run the application
+ENTRYPOINT ["dotnet", "backend.dll"]
