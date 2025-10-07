@@ -15,6 +15,9 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/publish .
 
+# Copy SQL scripts manually into publish folder
+COPY SqlScripts /app/publish/SqlScripts
+
 # Expose the port the application runs on
 EXPOSE 8080
 
