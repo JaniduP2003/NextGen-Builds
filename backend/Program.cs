@@ -18,7 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins("http://localhost:3000") // Vite dev server
               .AllowAnyHeader()
               .AllowAnyMethod());
 });
@@ -76,6 +76,7 @@ if (app.Environment.IsDevelopment())
 
 //app.UseHttpsRedirection();
 app.UseCors();
+app.UseCors("AllowFrontend"); 
 app.UseAuthorization();
 app.MapControllers();
 //app.Run();
