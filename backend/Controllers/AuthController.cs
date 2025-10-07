@@ -16,10 +16,12 @@ namespace Backend_Resourcely.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly AppDbContext _context;
+    private readonly IConfiguration _config;
 
-    public AuthController(AppDbContext context)
+    public AuthController(AppDbContext context, IConfiguration config)
     {
         _context = context;
+        _config = config;
     }
 
     // POST: api/auth/register
@@ -71,7 +73,8 @@ public async Task<IActionResult> Login([FromBody] LogInReq request)
 
     // Generate JWT token
     var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
-    var key = System.Text.Encoding.ASCII.GetBytes("YOUR_SECRET_KEY"); // replace with actual secret
+    var jwtKey = _config["Jwt:Key"] ?? throw new Exception("JWT key not configured.");
+    var key = System.Text.Encoding.ASCII.GetBytes(jwtKey);
 
     var tokenDescriptor = new Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor
     {
