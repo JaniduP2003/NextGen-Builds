@@ -4,6 +4,10 @@ using Backend_Resourcely.Helpers;
 using Backend_Resourcely.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+
 
 namespace Backend_Resourcely.Controllers;
 
@@ -59,42 +63,40 @@ public async Task<IActionResult> Register([FromBody] SignUpReq request)
 
     // POST: api/auth/login
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LogInReq request)
+public async Task<IActionResult> Login([FromBody] LogInReq request)
+{
+    var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
+    if (user == null || !PasswordHelper.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt))
+        return Unauthorized(new { error = "Invalid email or password." });
+
+    // Generate JWT token
+    var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
+    var key = System.Text.Encoding.ASCII.GetBytes("YOUR_SECRET_KEY"); // replace with actual secret
+
+    var tokenDescriptor = new Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor
     {
-        // Validate input
-        if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Password))
+        Subject = new System.Security.Claims.ClaimsIdentity(new[]
         {
-            return BadRequest(new { error = "Email and password are required." });
-        }
+            new System.Security.Claims.Claim("id", user.Id.ToString()),
+            new System.Security.Claims.Claim("role", user.Role)
+        }),
+        Expires = request.RememberMe 
+            ? DateTime.UtcNow.AddDays(30)  // token lasts 30 days if "Remember Me" is checked
+            : DateTime.UtcNow.AddHours(2), // token lasts 2 hours otherwise
+        SigningCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(
+            new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(key), 
+            Microsoft.IdentityModel.Tokens.SecurityAlgorithms.HmacSha256Signature)
+    };
 
-        // Find user by email
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
-        if (user == null)
-        {
-            return Unauthorized(new { error = "Invalid email or password." });
-        }
+    var token = tokenHandler.CreateToken(tokenDescriptor);
+    var tokenString = tokenHandler.WriteToken(token);
 
-        // Verify password
-        bool isValid = PasswordHelper.VerifyPassword(request.Password, user.PasswordHash, user.PasswordSalt);
-        if (!isValid)
-        {
-             return Unauthorized(new { error = "Invalid email or password." });
-        }
+    return Ok(new
+    {
+        message = "Login successful",
+        user = new { user.Id, user.Email, user.Username, user.Role },
+        token = tokenString
+    });
+}
 
-        // ✅ SUCCESSFUL LOGIN
-        // TODO: Generate JWT token here (optional but recommended for real apps)
-
-        return Ok(new
-        {
-            message = "Login successful.",
-            user = new
-            {
-                user.Id,
-                user.Email,
-                user.Username,
-                user.Role
-            }
-            // token = "your-jwt-token-here"  ← add later with JWT
-        });
-    }
 }
