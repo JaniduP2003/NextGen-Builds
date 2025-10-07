@@ -124,11 +124,43 @@ export default function SignInPage() {
     setRememberMe(event.target.checked);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ email, password ,rememberMe});
-    // Add auth logic here
-  };
+ const handleSubmit = async (e: React.FormEvent) => {  //the connecting code to the backend
+  e.preventDefault();
+
+  try {
+    const response = await fetch('http://localhost:8080/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        rememberMe,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Login failed');
+    }
+
+    const data = await response.json();
+    console.log('✅ Login success:', data);
+
+    // Optionally store token in localStorage if your backend returns one
+    if (data.token) {
+      localStorage.setItem('authToken', data.token);
+    }
+
+    // Redirect user after login success (optional)
+    // router.push('/dashboard');
+
+  } catch (error) {
+    console.error('❌ Error logging in:', error);
+    alert('Login failed. Please check your credentials.');
+  }
+};
+
 
   return (
     <div className={montserrat.className}>
@@ -175,6 +207,7 @@ export default function SignInPage() {
             Make a new doc to bring your words, data, and teams together. For free.
           </Typography>
 
+ <form onSubmit={handleSubmit}> 
           {/* Email input */}
           <InputWithIcon
             margin="normal"
@@ -262,7 +295,7 @@ export default function SignInPage() {
           >
             Get Started
           </Button>
-
+</form> 
  {/* Divider */}
           <Divider sx={{ my: 2, color: 'rgba(255, 255, 255, 0.3)' }}>
             <Typography variant="caption" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
