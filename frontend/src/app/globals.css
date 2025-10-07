@@ -119,4 +119,88 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Stronger autofill override for glass theme */
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:active,
+  select:-webkit-autofill,
+  select:-webkit-autofill:focus,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px oklch(1 0 0 / 0.15) inset !important; /* Use Tailwind's oklch color */
+    box-shadow: 0 0 0 1000px oklch(1 0 0 / 0.15) inset !important; /* Use Tailwind's oklch color */
+    -webkit-text-fill-color: #fff !important; /* Text color */
+    background-color: transparent !important;
+    background-image: none !important; /* Remove any default background image */
+    border-radius: inherit !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* Firefox autofill override */
+  input:autofill,
+  input:autofill:hover,
+  input:autofill:focus,
+  input:autofill:active,
+  textarea:autofill,
+  textarea:autofill:hover,
+  textarea:autofill:focus,
+  textarea:autofill:active,
+  select:autofill,
+  select:autofill:hover,
+  select:autofill:focus,
+  select:autofill:active {
+    box-shadow: 0 0 0 1000px oklch(1 0 0 / 0.15) inset !important; /* Use Tailwind's oklch color */
+    -moz-box-shadow: 0 0 0 1000px oklch(1 0 0 / 0.15) inset !important; /* Fallback for older Firefox */
+    -moz-autofill-color: #fff !important; /* Specific for Firefox text color */
+    color: #fff !important; /* General text color override */
+    background-color: transparent !important;
+    background-image: none !important; /* Remove any default background image */
+    border-radius: inherit !important;
+    outline: none !important;
+    outline-offset: 0 !important;
+  }
+
+  /* Dark mode specific overrides */
+  .dark input:autofill,
+  .dark input:autofill:hover,
+  .dark input:autofill:focus,
+  .dark input:autofill:active,
+  .dark textarea:autofill,
+  .dark textarea:autofill:hover,
+  .dark textarea:autofill:focus,
+  .dark textarea:autofill:active,
+  .dark select:autofill,
+  .dark select:autofill:hover,
+  .dark select:autofill:focus,
+  .dark select:autofill:active {
+    box-shadow: 0 0 0 1000px oklch(0.129 0.042 264.695 / 0.15) inset !important; /* Dark mode background */
+    -moz-box-shadow: 0 0 0 1000px oklch(0.129 0.042 264.695 / 0.15) inset !important; /* Fallback for older Firefox */
+    -moz-autofill-color: oklch(0.984 0.003 247.858) !important; /* Dark mode text color */
+    color: oklch(0.984 0.003 247.858) !important; /* Dark mode text color */
+  }
+
+  .dark input:-webkit-autofill,
+  .dark input:-webkit-autofill:hover,
+  .dark input:-webkit-autofill:focus,
+  .dark input:-webkit-autofill:active,
+  .dark textarea:-webkit-autofill,
+  .dark textarea:-webkit-autofill:hover,
+  .dark textarea:-webkit-autofill:focus,
+  .dark textarea:-webkit-autofill:active,
+  .dark select:-webkit-autofill,
+  .dark select:-webkit-autofill:hover,
+  .dark select:-webkit-autofill:focus,
+  .dark select:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px oklch(0.129 0.042 264.695 / 0.15) inset !important; /* Dark mode background */
+    box-shadow: 0 0 0 1000px oklch(0.129 0.042 264.695 / 0.15) inset !important; /* Dark mode background */
+    -webkit-text-fill-color: oklch(0.984 0.003 247.858) !important; /* Dark mode text color */
+  }
 }
