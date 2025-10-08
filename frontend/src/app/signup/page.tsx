@@ -264,6 +264,21 @@ export default function SignUpPage() {
               }}
             />
 
+            <InputWithIcon
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username" // <<---- added
+              name="username"
+              autoComplete="username"
+              value={username} // <<---- fixed (was formData.username)
+              onChange={(e) => setUsername(e.target.value)} // <<---- fixed (was handleChange)
+              InputProps={{
+                startAdornment: <PersonAddIcon sx={{ mr: 1 }} />, // <<---- added icon
+              }}
+            />
+
             {/* Password input */}
             <InputWithIcon
               margin="normal"
