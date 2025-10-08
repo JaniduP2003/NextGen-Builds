@@ -132,7 +132,7 @@ export default function SignUpPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  
+  const [username, setUsername] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
@@ -163,7 +163,7 @@ export default function SignUpPage() {
         body: JSON.stringify({
           email,
           password,
-          
+          username,
           rememberMe,
         }),
       });
@@ -247,128 +247,129 @@ export default function SignUpPage() {
           </Typography>
 
           {/* Email input */}
-          <form onSubmit={handleSubmit}> 
-          <InputWithIcon
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            InputProps={{
-              startAdornment: <EmailIcon sx={{ mr: 1 }} />,
-            }}
-          />
+          <form onSubmit={handleSubmit}>
+            <InputWithIcon
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              InputProps={{
+                startAdornment: <EmailIcon sx={{ mr: 1 }} />,
+              }}
+            />
 
-          {/* Password input */}
-          <InputWithIcon
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type={showPassword ? "text" : "password"}
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            InputProps={{
-              startAdornment: <LockIcon sx={{ mr: 1 }} />,
-              endAdornment: (
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={() => setShowPassword(!showPassword)}
-                  edge="end"
-                  sx={{ color: "rgba(255, 255, 255, 0.7)" }}
-                >
-                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                </IconButton>
-              ),
-            }}
-          />
+            {/* Password input */}
+            <InputWithIcon
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type={showPassword ? "text" : "password"}
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              InputProps={{
+                startAdornment: <LockIcon sx={{ mr: 1 }} />,
+                endAdornment: (
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={() => setShowPassword(!showPassword)}
+                    edge="end"
+                    sx={{ color: "rgba(255, 255, 255, 0.7)" }}
+                  >
+                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  </IconButton>
+                ),
+              }}
+            />
 
-          {/* Confirm Password input */}
-          <InputWithIcon
-            margin="normal"
-            required
-            fullWidth
-            name="confirmPassword"
-            label="Confirm Password"
-            type={showConfirmPassword ? "text" : "password"}
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            InputProps={{
-              startAdornment: <LockIcon sx={{ mr: 1 }} />,
-              endAdornment: (
-                <IconButton
-                  aria-label="toggle confirm password visibility"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  edge="end"
-                  sx={{ color: "rgba(255, 255, 255, 0.7)" }}
-                >
-                  {showConfirmPassword ? (
-                    <VisibilityOffIcon />
-                  ) : (
-                    <VisibilityIcon />
-                  )}
-                </IconButton>
-              ),
-            }}
-          />
+            {/* Confirm Password input */}
+            <InputWithIcon
+              margin="normal"
+              required
+              fullWidth
+              name="confirmPassword"
+              label="Confirm Password"
+              type={showConfirmPassword ? "text" : "password"}
+              id="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              InputProps={{
+                startAdornment: <LockIcon sx={{ mr: 1 }} />,
+                endAdornment: (
+                  <IconButton
+                    aria-label="toggle confirm password visibility"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    edge="end"
+                    sx={{ color: "rgba(255, 255, 255, 0.7)" }}
+                  >
+                    {showConfirmPassword ? (
+                      <VisibilityOffIcon />
+                    ) : (
+                      <VisibilityIcon />
+                    )}
+                  </IconButton>
+                ),
+              }}
+            />
 
-          {/* Remember me checkbox */}
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={rememberMe}
-                onChange={handleRememberMeChange}
-                color="primary"
-                sx={{
-                  color: "rgba(255, 255, 255, 0.7)",
-                  "&.Mui-checked": {
-                    color: "#ff0033", // Red color when checked
-                  },
-                }}
-              />
-            }
-            label={
-              <Typography sx={{ color: "rgba(255, 255, 255, 0.8)" }}>
-                Remember me
-              </Typography>
-            }
-            sx={{ mt: 1, mb: 2 }} // Add margin to position it nicely
-          />
+            {/* Remember me checkbox */}
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={rememberMe}
+                  onChange={handleRememberMeChange}
+                  color="primary"
+                  sx={{
+                    color: "rgba(255, 255, 255, 0.7)",
+                    "&.Mui-checked": {
+                      color: "#ff0033", // Red color when checked
+                    },
+                  }}
+                />
+              }
+              label={
+                <Typography sx={{ color: "rgba(255, 255, 255, 0.8)" }}>
+                  Remember me
+                </Typography>
+              }
+              sx={{ mt: 1, mb: 2 }} // Add margin to position it nicely
+            />
 
-          {/* Primary button */}
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{
-              mt: 1,
-              mb: 3,
-              py: 1.5,
-              borderRadius: "12px",
-              background: "linear-gradient(90deg, #ff0033 0%, #ff3366 100%)",
-              color: "white",
-              fontWeight: 600,
-              textTransform: "none",
-              boxShadow: "0 4px 20px rgba(255, 0, 51, 0.4)",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                transform: "scale(1.03)",
-                boxShadow: "0 6px 25px rgba(255, 0, 51, 0.6)",
-                background: "linear-gradient(90deg, #ff0033 0%, #ff0033 100%)",
-              },
-            }}
-          >
-            Create Account
-          </Button>
-            </form>
+            {/* Primary button */}
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 1,
+                mb: 3,
+                py: 1.5,
+                borderRadius: "12px",
+                background: "linear-gradient(90deg, #ff0033 0%, #ff3366 100%)",
+                color: "white",
+                fontWeight: 600,
+                textTransform: "none",
+                boxShadow: "0 4px 20px rgba(255, 0, 51, 0.4)",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                  boxShadow: "0 6px 25px rgba(255, 0, 51, 0.6)",
+                  background:
+                    "linear-gradient(90deg, #ff0033 0%, #ff0033 100%)",
+                },
+              }}
+            >
+              Create Account
+            </Button>
+          </form>
 
           {/* Divider */}
           <Divider sx={{ my: 2, color: "rgba(255, 255, 255, 0.3)" }}>
