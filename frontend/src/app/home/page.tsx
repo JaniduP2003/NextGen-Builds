@@ -27,6 +27,7 @@ import {
   Info as InfoIcon
 } from '@mui/icons-material';
 
+//This theme controls global colors, typography, and Material-UI component styling
 // Create theme with futuristic colors
 const theme = createTheme({
   palette: {
@@ -131,15 +132,17 @@ interface HeroSlide {
   alt: string;
 }
 
+//HERO SLIDES — Main landing carousel
 // Hero slide data
 const heroSlides: HeroSlide[] = [
-  {
-    id: 1,
-    title: "Build your dream PC.",
-    subtitle: "Discover the latest gaming rigs, parts, and titles — all in one place.",
-    image: "/hero-1.jpg",
-    alt: "High-end gaming setup with RGB lighting"
-  },
+{
+  id: 1,
+  title: "Build Your Power. Face the Unknown.",
+  subtitle: "Craft a machine as hauntingly powerful as the world of Silent Hill F beauty, fear, and performance intertwined.",
+  image: "hero_slids/Silenthillf.jpg",
+  alt: "Atmospheric gaming PC inspired by Silent Hill F with eerie lighting and misty background"
+},
+
   {
     id: 2,
     title: "Next-gen gaming awaits.",
@@ -147,14 +150,15 @@ const heroSlides: HeroSlide[] = [
     image: "/hero-2.jpg",
     alt: "Gaming PC with RTX 5090 and custom cooling"
   },
-  {
-    id: 3,
-    title: "Game like a pro.",
-    subtitle: "Level up your setup with premium components and titles.",
-    image: "/hero-3.jpg",
-    alt: "Gamer in action with high-end peripherals"
-  }
+{
+  id: 3,
+  title: "GeForce RTX 4090 — BEYOND FAST.",
+  subtitle: "Experience the ultimate leap in gaming and creation with NVIDIA’s Ada Lovelace architecture.built for gamers and creators who demand more.",
+  image: "hero_slids/4090.jpg",
+  alt: "High-end NVIDIA RTX GPU glowing with green and silver accents"
+}
 ];
+
 
 // Gaming components data
 const gamingComponents: Product[] = [
@@ -220,6 +224,7 @@ const topGames: Product[] = [
   }
 ];
 
+//🧩 PRODUCT CARD COMPONENT Displays a single product or game with image, name, price, and "Add to Cart" button.
 // Product card component
 const ProductCard: React.FC<{ product: Product; isGame?: boolean }> = ({ product, isGame = false }) => (
   <Card sx={{ 
@@ -232,6 +237,7 @@ const ProductCard: React.FC<{ product: Product; isGame?: boolean }> = ({ product
       boxShadow: '0 0 20px rgba(255, 0, 0, 0.3)',
     }
   }}>
+     {/* Product image */}
     <CardMedia
       component="img"
       height="200"
@@ -239,6 +245,8 @@ const ProductCard: React.FC<{ product: Product; isGame?: boolean }> = ({ product
       alt={product.name}
       sx={{ objectFit: 'cover', borderRadius: '8px 8px 0 0' }}
     />
+
+     {/* Product info */}
     <CardContent sx={{ flexGrow: 1, p: 2 }}>
       <Typography gutterBottom variant="h6" component="h3" sx={{ color: '#fff', fontWeight: 600 }}>
         {product.name}
@@ -246,6 +254,8 @@ const ProductCard: React.FC<{ product: Product; isGame?: boolean }> = ({ product
       <Typography variant="body2" sx={{ color: '#aaa', mb: 2, minHeight: '40px' }}>
         {product.description}
       </Typography>
+
+       {/* Price and action buttons */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="h6" sx={{ color: '#FF0000', fontWeight: 700 }}>
           {product.price}
@@ -264,6 +274,8 @@ const ProductCard: React.FC<{ product: Product; isGame?: boolean }> = ({ product
           >
             <InfoIcon fontSize="small" />
           </IconButton>
+
+           {/* Add to cart */}
           <Button 
             variant="contained" 
             size="small" 
@@ -278,13 +290,20 @@ const ProductCard: React.FC<{ product: Product; isGame?: boolean }> = ({ product
   </Card>
 );
 
+//  🏠 MAIN PAGE COMPONENT
+  //  Combines:
+  //  - Hero carousel
+  //  - Trending tab (components/games)
+  //  - Responsive design
+  //  - Footer
+
 // Main page component
 export default function HomePage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-  // Auto-rotate hero slides
+  // Auto-rotate hero slides 5 sec 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % heroSlides.length);
@@ -292,6 +311,8 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
+
+  // Carousel navigation
   const handleNextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % heroSlides.length);
   };
@@ -306,6 +327,7 @@ export default function HomePage() {
 
   return (
     <ThemeProvider theme={theme}>
+       {/* Outer container with dark background gradient */}
       <Container maxWidth={false} disableGutters sx={{ 
         maxWidth: '2000px',
         background: 'linear-gradient(135deg, #0a0a12 0%, #1a1a2e 100%)',
@@ -313,6 +335,7 @@ export default function HomePage() {
         color: '#fff'
       }}>
         {/* Hero Banner */}
+        {/* HERO BANNER SECTION — Auto-rotating slides with CTA buttons */}
         <Box sx={{ 
           position: 'relative', 
           height: { xs: '70vh', md: '85vh' },
@@ -412,7 +435,7 @@ export default function HomePage() {
             </Box>
           ))}
 
-          {/* Carousel controls */}
+          {/* Carousel controls */}   {/* Carousel navigation arrows */}
           <IconButton 
             onClick={handlePrevSlide}
             sx={{ 
@@ -455,6 +478,7 @@ export default function HomePage() {
             display: 'flex',
             gap: 1
           }}>
+              {/* Dot indicators */}
             {heroSlides.map((_, index) => (
               <Box
                 key={index}
@@ -476,7 +500,7 @@ export default function HomePage() {
           </Box>
         </Box>
 
-        {/* Trending Section */}
+        {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */} //
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, pb: 6 }}>
           <Box sx={{ 
             textAlign: 'center', 
@@ -577,7 +601,7 @@ export default function HomePage() {
           </Stack>
         </Container>
 
-        {/* Footer */}
+        {/*   ⚙️ FOOTER SECTION */}
         <Box sx={{ 
           mt: 6, 
           py: 4, 
