@@ -156,7 +156,7 @@ const heroSlides: HeroSlide[] = [
     id: 2,
     title: "Next-gen gaming awaits.",
     subtitle: "Experience ultimate performance with cutting-edge components.",
-    image: "/hero-2.jpg",
+    image: "hero_slids/hellisus.jpg",
     alt: "Gaming PC with RTX 5090 and custom cooling",
   },
   {
@@ -545,14 +545,14 @@ export default function HomePage() {
           </Box>
         </Box>
 
-
+<Box sx={{ textAlign: "center" }}>
 <Box
   sx={{
     display: "inline-block",
     mx: "auto",
     fontSize: { xs: "2rem", md: "3rem" },
     fontWeight: 700,
-    mb: 2,
+    mb: 0,
     textAlign: "center",
     background: "linear-gradient(90deg, #ef4c4cff, #ef4c4cff, #ef4c4cff, #FFFFFF, #FF0000)",
     backgroundSize: "200% auto",
@@ -572,6 +572,7 @@ export default function HomePage() {
 >
   Explore 
 </Box>
+</Box>
 
 
         {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
@@ -590,8 +591,7 @@ export default function HomePage() {
                 transform: "translateX(-50%)",
                 width: "80px",
                 height: "4px",
-                background:
-                  "linear-gradient(90deg, transparent, #FF0000, transparent)",
+               
                 borderRadius: "2px",
               },
             }}
