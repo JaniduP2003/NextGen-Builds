@@ -29,6 +29,8 @@ import {
 
 //import dynamic from 'next/dynamic';
 
+import TiltedCard from '../components/TiltedCard';
+
 
 
 
@@ -212,7 +214,7 @@ const topGames: Product[] = [
     id: 2,
     name: "Elden Ring",
     description: "Epic fantasy adventure",
-    image: "/elden.jpg",
+    image: "games/elden.jpg",
     price: "$59.99"
   },
   {
@@ -611,29 +613,126 @@ export default function HomePage() {
         </Container>
 
            {/* 🎮 EXPLORE WORLDS SECTION */}
-<Container maxWidth="xl" sx={{ py: 8 }}>
-  <Box sx={{ textAlign: 'center', mb: 4 }}>
-    <Typography 
-      variant="h2" 
-      sx={{
-        fontWeight: 700,
-        background: 'linear-gradient(to right, #fff, #aaa)',
-        backgroundClip: 'text',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
+        {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */} //
+        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, pb: 6 }}>
+          <Box sx={{ 
+            textAlign: 'center', 
+            mb: 4,
+            position: 'relative',
+            '&:after': {
+              content: '""',
+              position: 'absolute',
+              bottom: -10,
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '80px',
+              height: '4px',
+              background: 'linear-gradient(90deg, transparent, #FF0000, transparent)',
+              borderRadius: '2px'
+            }
+          }}>
+            <Typography 
+              variant="h2" 
+              sx={{ 
+                fontWeight: 700,
+                background: 'linear-gradient(to right, #fff, #aaa)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 1
+              }}
+            >
+              Trending <span style={{ color: '#FF0000', fontWeight: 800 }}>Now</span>
+            </Typography>
+          </Box>
+
+          <Box sx={{ borderBottom: 1, borderColor: 'rgba(255,255,255,0.1)', mb: 4 }}>
+            <Tabs 
+              value={activeTab} 
+              onChange={(_, newValue) => setActiveTab(newValue)}
+              centered
+              sx={{
+                '& .MuiTabs-indicator': {
+                  backgroundColor: '#FF0000',
+                  height: '3px'
+                }
+              }}
+            >
+              <Tab 
+                label="Gaming Components" 
+                sx={{ 
+                  color: activeTab === 0 ? '#FF0000' : '#aaa',
+                  fontWeight: 600
+                }} 
+              />
+              <Tab 
+                label="Top Games" 
+                sx={{ 
+                  color: activeTab === 1 ? '#FF0000' : '#aaa',
+                  fontWeight: 600
+                }} 
+              />
+            </Tabs>
+          </Box>
+
+         
+          {/* Product Stack                    replace this if you wont to add react bits */}
+<Stack 
+  direction="row" 
+  spacing={3}
+  sx={{ 
+    overflowX: 'auto',
+    py: 2,
+    '&::-webkit-scrollbar': {
+      height: '8px',
+    },
+    '&::-webkit-scrollbar-track': {
+      background: 'rgba(255,255,255,0.05)',
+      borderRadius: '4px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: 'rgba(255,255,255,0.2)',
+      borderRadius: '4px',
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      background: 'rgba(255,255,255,0.3)',
+    }
+  }}
+>
+  {(activeTab === 0 ? gamingComponents : topGames).map((product) => (
+    <Box 
+      key={product.id}
+      sx={{ 
+        minWidth: { xs: '280px', sm: '300px', md: '240px' },
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%'
       }}
     >
-      Explore <span style={{ color: '#FF0000' }}>Worlds</span>
-    </Typography>
-    <Typography variant="body1" sx={{ color: '#aaa', maxWidth: 600, mx: 'auto', mt: 1 }}>
-      Dive into breathtaking universes from our top gaming titles and PC builds.
-    </Typography>
-  </Box>
+      <TiltedCard
+        imageSrc={product.image}
+        altText={product.name}
+        captionText={product.name}
+        containerHeight="300px"
+        containerWidth="300px"
+        imageHeight="300px"
+        imageWidth="300px"
+        rotateAmplitude={12}
+        scaleOnHover={1.05}
+        showMobileWarning={false}
+        showTooltip={true}
+        displayOverlayContent={true}
+        overlayContent={
+          <p style={{ color: '#fff', fontWeight: 600 }}>
+            {product.name}
+          </p>
+        }
+      />
+    </Box>
+  ))}
+</Stack>
 
-
-  
-</Container>
-
+        </Container>
         
 
         {/*   ⚙️ FOOTER SECTION */}
