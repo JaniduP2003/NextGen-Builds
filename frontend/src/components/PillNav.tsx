@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 
 export type PillNavItem = {
@@ -255,7 +255,7 @@ const PillNav: React.FC<PillNavProps> = ({
       >
         {isRouterLink(items?.[0]?.href) ? (
           <Link
-            to={items[0].href}
+            href={items[0].href}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
             role="menuitem"
@@ -362,7 +362,7 @@ const PillNav: React.FC<PillNavProps> = ({
                   {isRouterLink(item.href) ? (
                     <Link
                       role="menuitem"
-                      to={item.href}
+                      href={item.href}
                       className={basePillClasses}
                       style={pillStyle}
                       aria-label={item.ariaLabel || item.label}
@@ -443,7 +443,7 @@ const PillNav: React.FC<PillNavProps> = ({
               <li key={item.href}>
                 {isRouterLink(item.href) ? (
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className={linkClasses}
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
