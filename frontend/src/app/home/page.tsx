@@ -27,6 +27,9 @@ import {
   Info as InfoIcon,
 } from "@mui/icons-material";
 
+import GradientText from '../components/GradientText'
+
+
 //import dynamic from 'next/dynamic';
 
 import TiltedCard from "../components/TiltedCard";
@@ -171,28 +174,28 @@ const gamingComponents: Product[] = [
     id: 1,
     name: "NVIDIA RTX 5090",
     description: "Ultimate 4K GPU with 32GB VRAM",
-    image: "/gpu.jpg",
+    image: "Trendingnow/gaming_com/RTX-5090.jpg",
     price: "$2,499",
   },
   {
     id: 2,
     name: "Intel Core i9-14900K",
     description: "24-core processor for gaming",
-    image: "/cpu.jpg",
+    image: "Trendingnow/gaming_com/i9.jpg",
     price: "$699",
   },
   {
     id: 3,
     name: "Corsair iCUE RGB RAM",
     description: "32GB DDR5 with customizable lighting",
-    image: "/ram.jpg",
+    image: "Trendingnow/gaming_com/coi.jpg",
     price: "$349",
   },
   {
     id: 4,
     name: "ASUS ROG Motherboard",
     description: "Z790 chipset with premium features",
-    image: "/motherboard.jpg",
+    image: "Trendingnow/gaming_com/rog.png",
     price: "$499",
   },
 ];
@@ -542,6 +545,8 @@ export default function HomePage() {
         </Box>
         {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
         //
+
+        
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, pb: 6 }}>
           <Box
             sx={{
@@ -562,6 +567,8 @@ export default function HomePage() {
               },
             }}
           >
+
+            
             <Typography
               variant="h2"
               sx={{
@@ -573,7 +580,7 @@ export default function HomePage() {
                 mb: 1,
               }}
             >
-              Trending{" "}
+              Trennhding{" "}
               <span style={{ color: "#FF0000", fontWeight: 800 }}>Now</span>
             </Typography>
           </Box>
@@ -654,136 +661,14 @@ export default function HomePage() {
             ))}
           </Stack>
         </Container>
+       
+       
         {/* 🎮 EXPLORE WORLDS SECTION */}
         {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
-        //
-        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, pb: 6 }}>
-          <Box
-            sx={{
-              textAlign: "center",
-              mb: 4,
-              position: "relative",
-              "&:after": {
-                content: '""',
-                position: "absolute",
-                bottom: -10,
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "80px",
-                height: "4px",
-                background:
-                  "linear-gradient(90deg, transparent, #FF0000, transparent)",
-                borderRadius: "2px",
-              },
-            }}
-          >
-            <Typography
-              variant="h2"
-              sx={{
-                fontWeight: 700,
-                background: "linear-gradient(to right, #fff, #aaa)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                mb: 1,
-              }}
-            >
-              Trending{" "}
-              <span style={{ color: "#FF0000", fontWeight: 800 }}>Now</span>
-            </Typography>
-          </Box>
+       
 
-          <Box
-            sx={{
-              borderBottom: 1,
-              borderColor: "rgba(255,255,255,0.1)",
-              mb: 4,
-            }}
-          >
-            <Tabs
-              value={activeTab}
-              onChange={(_, newValue) => setActiveTab(newValue)}
-              centered
-              sx={{
-                "& .MuiTabs-indicator": {
-                  backgroundColor: "#FF0000",
-                  height: "3px",
-                },
-              }}
-            >
-              <Tab
-                label="Gaming Components"
-                sx={{
-                  color: activeTab === 0 ? "#FF0000" : "#aaa",
-                  fontWeight: 600,
-                }}
-              />
-              <Tab
-                label="Top Games"
-                sx={{
-                  color: activeTab === 1 ? "#FF0000" : "#aaa",
-                  fontWeight: 600,
-                }}
-              />
-            </Tabs>
-          </Box>
 
-          {/* Product Stack                    replace this if you wont to add react bits */}
-          <Stack
-            direction="row"
-            spacing={3}
-            sx={{
-              overflowX: "auto",
-              py: 2,
-              "&::-webkit-scrollbar": {
-                height: "8px",
-              },
-              "&::-webkit-scrollbar-track": {
-                background: "rgba(255,255,255,0.05)",
-                borderRadius: "4px",
-              },
-              "&::-webkit-scrollbar-thumb": {
-                background: "rgba(255,255,255,0.2)",
-                borderRadius: "4px",
-              },
-              "&::-webkit-scrollbar-thumb:hover": {
-                background: "rgba(255,255,255,0.3)",
-              },
-            }}
-          >
-            {(activeTab === 0 ? gamingComponents : topGames).map((product) => (
-              <Box
-                key={product.id}
-                sx={{
-                  minWidth: { xs: "280px", sm: "300px", md: "240px" },
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                }}
-              >
-                <TiltedCard
-                  imageSrc={product.image}
-                  altText={product.name}
-                  captionText={product.name}
-                  containerHeight="300px"
-                  containerWidth="300px"
-                  imageHeight="300px"
-                  imageWidth="300px"
-                  rotateAmplitude={12}
-                  scaleOnHover={1.05}
-                  showMobileWarning={false}
-                  showTooltip={true}
-                  displayOverlayContent={true}
-                  overlayContent={
-                    <p style={{ color: "#fff", fontWeight: 600 }}>
-                      {product.name}
-                    </p>
-                  }
-                />
-              </Box>
-            ))}
-          </Stack>
-        </Container>
+
         {/*   ⚙️ FOOTER SECTION */}
         <Box
           sx={{
@@ -804,5 +689,7 @@ export default function HomePage() {
         </Box>
       </Container>
     </ThemeProvider>
+
+    
   );
 }
