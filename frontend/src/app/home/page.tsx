@@ -30,6 +30,7 @@ import {
 import GradientText from '../components/GradientText'
 
 
+
 //import dynamic from 'next/dynamic';
 
 import TiltedCard from "../components/TiltedCard";
@@ -543,9 +544,37 @@ export default function HomePage() {
             ))}
           </Box>
         </Box>
-        {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
-        //
 
+
+<Box
+  sx={{
+    display: "inline-block",
+    mx: "auto",
+    fontSize: { xs: "2rem", md: "3rem" },
+    fontWeight: 700,
+    mb: 2,
+    textAlign: "center",
+    background: "linear-gradient(90deg, #ef4c4cff, #ef4c4cff, #ef4c4cff, #FFFFFF, #FF0000)",
+    backgroundSize: "200% auto",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+    animation: "gradient 10s linear infinite",
+    "@keyframes gradient": {
+      "0%": {
+        backgroundPosition: "0% center",
+      },
+      "100%": {
+        backgroundPosition: "200% center",
+      },
+    },
+  }}
+>
+  Explore 
+</Box>
+
+
+        {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
         
         <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, pb: 6 }}>
           <Box
@@ -567,22 +596,19 @@ export default function HomePage() {
               },
             }}
           >
-
-            
-            <Typography
-              variant="h2"
+            <Box
               sx={{
-                fontWeight: 700,
-                background: "linear-gradient(to right, #fff, #aaa)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
                 mb: 1,
+                textAlign: "center", // keeps it centered
+                position: "relative", // keeps the underline alignment working
+                "& span": {
+                  color: "#FF0000",
+                  fontWeight: 800,
+                },
               }}
             >
-              Trennhding{" "}
-              <span style={{ color: "#FF0000", fontWeight: 800 }}>Now</span>
-            </Typography>
+             
+            </Box>
           </Box>
 
           <Box
@@ -661,14 +687,8 @@ export default function HomePage() {
             ))}
           </Stack>
         </Container>
-       
-       
         {/* 🎮 EXPLORE WORLDS SECTION */}
         {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
-       
-
-
-
         {/*   ⚙️ FOOTER SECTION */}
         <Box
           sx={{
@@ -689,7 +709,5 @@ export default function HomePage() {
         </Box>
       </Container>
     </ThemeProvider>
-
-    
   );
 }
