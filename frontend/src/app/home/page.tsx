@@ -598,12 +598,15 @@ export default function HomePage() {
           >
             {(activeTab === 0 ? gamingComponents : topGames).map((product) => (
               <Box 
-                key={product.id}
-                sx={{ 
-                  minWidth: { xs: '280px', sm: '300px', md: '240px' },
-                  display: 'flex',
-                  flexDirection: 'column',
-                  height: '100%'
+               key={product.id}
+      sx={{ 
+        minWidth: '300px',      // Fixed width
+        maxWidth: '300px',
+        minHeight: '400px',     // Fixed height
+        maxHeight: '400px',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%'
                 }}
               >
                 <ProductCard product={product} isGame={activeTab === 1} />
