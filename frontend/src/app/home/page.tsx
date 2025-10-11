@@ -207,7 +207,7 @@ const topGames: Product[] = [
     id: 1,
     name: "Cyberpunk 2077",
     description: "Next-gen open world RPG",
-    image: "/cyberpunk.jpg",
+    image: "Trendingnow/game/cyberpunk.jpg",
     price: "$59.99",
   },
   {
@@ -221,14 +221,14 @@ const topGames: Product[] = [
     id: 3,
     name: "Call of Duty: MW3",
     description: "Latest military shooter",
-    image: "/cod.jpg",
+    image: "Trendingnow/game/codmw3.jpg",
     price: "$69.99",
   },
   {
     id: 4,
     name: "Starfield",
     description: "Open-world space RPG",
-    image: "/starfield.jpg",
+    image: "Trendingnow/game/Starfield-hero.jpg",
     price: "$69.99",
   },
 ];
@@ -545,117 +545,66 @@ export default function HomePage() {
           </Box>
         </Box>
 
-<Box sx={{ textAlign: "center" }}>
-<Box
-  sx={{
-    display: "inline-block",
-    mx: "auto",
-    fontSize: { xs: "2rem", md: "3rem" },
-    fontWeight: 700,
-    mb: 0,
-    textAlign: "center",
-    background: "linear-gradient(90deg, #ef4c4cff, #ef4c4cff, #ef4c4cff, #FFFFFF, #FF0000)",
-    backgroundSize: "200% auto",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-    animation: "gradient 10s linear infinite",
-    "@keyframes gradient": {
-      "0%": {
-        backgroundPosition: "0% center",
-      },
-      "100%": {
-        backgroundPosition: "200% center",
-      },
-    },
-  }}
->
-  Explore 
-</Box>
-</Box>
-
-
-        {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
-        
-        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, pb: 6 }}>
+        {/* Explore Section */}
+        {/* 🎮 EXPLORE WORLDS SECTION */
+        }
+        <Box sx={{ textAlign: "center" }}>
           <Box
             sx={{
+              display: "inline-block",
+              mx: "auto",
+              fontSize: { xs: "2rem", md: "3rem" },
+              fontWeight: 700,
+              mb: 0,
               textAlign: "center",
-              mb: 4,
-              position: "relative",
-              "&:after": {
-                content: '""',
-                position: "absolute",
-                bottom: -10,
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "80px",
-                height: "4px",
-               
-                borderRadius: "2px",
+              background:
+                "linear-gradient(90deg, #ef4c4cff, #ef4c4cff, #ef4c4cff, #FFFFFF, #FF0000)",
+              backgroundSize: "200% auto",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              animation: "gradient 10s linear infinite",
+              "@keyframes gradient": {
+                "0%": {
+                  backgroundPosition: "0% center",
+                },
+                "100%": {
+                  backgroundPosition: "200% center",
+                },
               },
             }}
           >
-            <Box
+            Explore
+          </Box>
+        </Box>
+        {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
+        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, pb: 6, mt: 6 }}>
+          <Box sx={{ textAlign: "center", mb: 4 }}>
+            <Typography
+              variant="h2"
               sx={{
+                fontWeight: 700,
                 mb: 1,
-                textAlign: "center", // keeps it centered
-                position: "relative", // keeps the underline alignment working
-                "& span": {
-                  color: "#FF0000",
-                  fontWeight: 800,
-                },
+                background: "linear-gradient(90deg, #FF0000, #FF5E5E)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
               }}
             >
-             
-            </Box>
+              Gaming Components
+            </Typography>
+            <Typography variant="h6" sx={{ color: "#aaa" }}>
+              Explore top-rated hardware for next-gen gaming rigs
+            </Typography>
           </Box>
 
-          <Box
-            sx={{
-              borderBottom: 1,
-              borderColor: "rgba(255,255,255,0.1)",
-              mb: 4,
-            }}
-          >
-            <Tabs
-              value={activeTab}
-              onChange={(_, newValue) => setActiveTab(newValue)}
-              centered
-              sx={{
-                "& .MuiTabs-indicator": {
-                  backgroundColor: "#FF0000",
-                  height: "3px",
-                },
-              }}
-            >
-              <Tab
-                label="Gaming Components"
-                sx={{
-                  color: activeTab === 0 ? "#FF0000" : "#aaa",
-                  fontWeight: 600,
-                }}
-              />
-              <Tab
-                label="Top Games"
-                sx={{
-                  color: activeTab === 1 ? "#FF0000" : "#aaa",
-                  fontWeight: 600,
-                }}
-              />
-            </Tabs>
-          </Box>
-
-          {/* Product Stack */}
+          {/* Product List for Components */}
           <Stack
             direction="row"
-            spacing={3}
+            spacing={1}
             sx={{
               overflowX: "auto",
               py: 2,
-              "&::-webkit-scrollbar": {
-                height: "8px",
-              },
+              "&::-webkit-scrollbar": { height: "8px" },
               "&::-webkit-scrollbar-track": {
                 background: "rgba(255,255,255,0.05)",
                 borderRadius: "4px",
@@ -669,24 +618,84 @@ export default function HomePage() {
               },
             }}
           >
-            {(activeTab === 0 ? gamingComponents : topGames).map((product) => (
+            {gamingComponents.map((product) => (
               <Box
                 key={product.id}
                 sx={{
-                  minWidth: "300px", // Fixed width
+                  minWidth: "300px",
                   maxWidth: "300px",
-                  minHeight: "400px", // Fixed height
+                  minHeight: "400px",
                   maxHeight: "400px",
                   display: "flex",
                   flexDirection: "column",
                   height: "100%",
                 }}
               >
-                <ProductCard product={product} isGame={activeTab === 1} />
+                <ProductCard product={product} />
               </Box>
             ))}
           </Stack>
         </Container>
+        {/* 🕹️ TOP GAMES SECTION  <--- edited */}
+        <Container maxWidth="lg" sx={{ px: { xs: 2, md: 4 }, pb: 6, mt: 0 }}>
+          <Box sx={{ textAlign: "center", mb: 4 }}>
+            <Typography
+              variant="h2"
+              sx={{
+                fontWeight: 700,
+                mb: 1,
+                background: "linear-gradient(90deg, #FF0000, #FF5E5E)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Top Games
+            </Typography>
+            <Typography variant="h6" sx={{ color: "#aaa" }}>
+              Discover must-play titles for your ultimate gaming setup
+            </Typography>
+          </Box>
+
+          {/* Product List for Games */}
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{
+              overflowX: "auto",
+              py: 2,
+              "&::-webkit-scrollbar": { height: "8px" },
+              "&::-webkit-scrollbar-track": {
+                background: "rgba(255,255,255,0.05)",
+                borderRadius: "4px",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                background: "rgba(255,255,255,0.2)",
+                borderRadius: "4px",
+              },
+              "&::-webkit-scrollbar-thumb:hover": {
+                background: "rgba(255,255,255,0.3)",
+              },
+            }}
+          >
+            {topGames.map((product) => (
+              <Box
+                key={product.id}
+                sx={{
+                  minWidth: "300px",
+                  maxWidth: "300px",
+                  minHeight: "400px",
+                  maxHeight: "400px",
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                }}
+              >
+                <ProductCard product={product} isGame />
+              </Box>
+            ))}
+          </Stack>
+        </Container>
+
         {/* 🎮 EXPLORE WORLDS SECTION */}
         {/* Trending Section         TRENDING PRODUCTS / GAMES SECTION             */}{" "}
         {/*   ⚙️ FOOTER SECTION */}
