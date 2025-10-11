@@ -27,6 +27,8 @@ import {
   Info as InfoIcon
 } from '@mui/icons-material';
 
+import Masonry from './../components/Masonry';
+
 //This theme controls global colors, typography, and Material-UI component styling
 // Create theme with futuristic colors
 const theme = createTheme({
@@ -114,6 +116,8 @@ const theme = createTheme({
     }
   }
 });
+
+
 
 // Define types for our data
 interface Product {
@@ -324,6 +328,28 @@ export default function HomePage() {
   const handleSlideClick = (index: number) => {
     setActiveSlide(index);
   };
+
+  const items = [
+    {
+      id: "1",
+      img: "https://picsum.photos/id/1015/600/900?grayscale",
+      url: "https://example.com/one",
+      height: 400,
+    },
+    {
+      id: "2",
+      img: "https://picsum.photos/id/1011/600/750?grayscale",
+      url: "https://example.com/two",
+      height: 250,
+    },
+    {
+      id: "3",
+      img: "https://picsum.photos/id/1020/600/800?grayscale",
+      url: "https://example.com/three",
+      height: 600,
+    },
+    // ... more items
+];
 
   return (
     <ThemeProvider theme={theme}>
@@ -600,6 +626,42 @@ export default function HomePage() {
             ))}
           </Stack>
         </Container>
+
+           {/* 🎮 EXPLORE WORLDS SECTION */}
+<Container maxWidth="xl" sx={{ py: 8 }}>
+  <Box sx={{ textAlign: 'center', mb: 4 }}>
+    <Typography 
+      variant="h2" 
+      sx={{
+        fontWeight: 700,
+        background: 'linear-gradient(to right, #fff, #aaa)',
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+      }}
+    >
+      Explore <span style={{ color: '#FF0000' }}>Worlds</span>
+    </Typography>
+    <Typography variant="body1" sx={{ color: '#aaa', maxWidth: 600, mx: 'auto', mt: 1 }}>
+      Dive into breathtaking universes from our top gaming titles and PC builds.
+    </Typography>
+  </Box>
+
+
+  <Masonry
+    items={items}
+    ease="power3.out"
+    duration={0.6}
+    stagger={0.05}
+    animateFrom="bottom"
+    scaleOnHover
+    hoverScale={0.95}
+    blurToFocus
+    colorShiftOnHover={false}
+  />
+</Container>
+
+        
 
         {/*   ⚙️ FOOTER SECTION */}
         <Box sx={{ 
