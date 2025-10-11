@@ -27,7 +27,10 @@ import {
   Info as InfoIcon
 } from '@mui/icons-material';
 
-import Masonry from './../components/Masonry';
+import dynamic from 'next/dynamic';
+
+const Masonry = dynamic(() => import('./../components/Masonry'), { ssr: false });
+
 
 //This theme controls global colors, typography, and Material-UI component styling
 // Create theme with futuristic colors
